@@ -19,7 +19,7 @@ RUN apt-dpkg-wrap apt-get update && \
     apt-dpkg-wrap apt-get install -y google-chrome-stable && \
     apt-dpkg-wrap apt-get update && \
     curl -sL https://deb.nodesource.com/setup_14.x | bash -  &&\
-    apt-dpkg-wrap apt install nodejs && \
+    apt-dpkg-wrap apt-get install nodejs -y && \
     apt-cleanup || \
     [ "${CHROME_RELEASE}" != "latest" ] && \
     curl -4so "/tmp/google-chrome-stable_${CHROME_RELEASE}-1_amd64.deb" "http://dl.google.com/linux/chrome/deb/pool/main/g/google-chrome-stable/google-chrome-stable_${CHROME_RELEASE}-1_amd64.deb" && \
