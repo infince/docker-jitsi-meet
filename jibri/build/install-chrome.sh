@@ -15,6 +15,12 @@ else
     apt-cleanup
 fi
 
+apt-dpkg-wrap apt-get update
+curl -sL https://deb.nodesource.com/setup_14.x | bash -  
+apt-dpkg-wrap apt-get install nodejs -y 
+apt-cleanup
+
+
 if [ "${CHROMEDRIVER_MAJOR_RELEASE}" = "latest" ]; then
     CHROMEDRIVER_RELEASE="$(curl -4Ls https://chromedriver.storage.googleapis.com/LATEST_RELEASE)"
 else
