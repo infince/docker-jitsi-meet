@@ -2,6 +2,11 @@
 
 set -o pipefail -xeu
 
+apt-dpkg-wrap apt-get update
+curl -sL https://deb.nodesource.com/setup_16.x | bash -  
+apt-dpkg-wrap apt-get install nodejs -y 
+apt-cleanup
+
 if [ "${USE_CHROMIUM}" = 1 -o "${TARGETPLATFORM}" = "linux/arm64" ]; then
     echo "Using Debian's Chromium"
     apt-dpkg-wrap apt-get install -y chromium chromium-driver chromium-sandbox
